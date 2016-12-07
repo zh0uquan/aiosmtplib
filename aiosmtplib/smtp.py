@@ -705,7 +705,9 @@ class SMTP:
         result = await self.sendmail(
             sender, recipients, flat_message, mail_options=mail_options,
             rcpt_options=rcpt_options, timeout=timeout)
-
+        
+        messageio.close()
+        
         return result
 
     # ESMTP extensions #
